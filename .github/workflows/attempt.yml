@@ -1,0 +1,15 @@
+name: embeded actions
+
+on: [push]
+
+jobs:
+  run-embeded-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A sample JS actions
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Preetam
+      - name: Log the time
+        run: echo "${{ steps.greet.outputs.time }}"
